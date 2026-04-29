@@ -50,9 +50,9 @@ public class ConsonantTest {
 
         //when
         Consonant consonant = new Consonant();
-        consonant.setUser(testUser);         // 방금 만든 유저 매핑
-        consonant.setCharName('가');      // char 타입인 경우 작은따옴표('') 사용
-        consonant.setVectorMap(vectorMap); // 자바 객체(List) 그대로 삽입!
+        consonant.setUser(testUser);
+        consonant.setCharName('가');
+        consonant.setVectorMap(vectorMap);
         consonant.setCharCount(1);
         Consonant savedConsonant = consonantRepository.save(consonant);
         //then
