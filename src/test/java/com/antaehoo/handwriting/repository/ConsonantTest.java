@@ -2,7 +2,6 @@ package com.antaehoo.handwriting.repository;
 
 import com.antaehoo.handwriting.dto.PointData;
 import com.antaehoo.handwriting.dto.StrokeData;
-import com.antaehoo.handwriting.service.UserService;
 import org.assertj.core.api.Assertions;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;

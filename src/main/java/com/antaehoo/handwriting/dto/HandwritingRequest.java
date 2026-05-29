@@ -20,3 +20,12 @@ public class HandwritingRequest {
     private List<StrokeData> strokes;
 
 }
+
+/*
+DTO 구조
+
+HandWritingRequest
+-> List<StrokeData> strokes
+-> List<PointData> points
+-> point Data = double x, y, p
+ */
