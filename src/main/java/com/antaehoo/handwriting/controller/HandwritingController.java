@@ -5,6 +5,7 @@ import com.antaehoo.handwriting.dto.StrokeData;
 import com.antaehoo.handwriting.repository.Consonant;
 import com.antaehoo.handwriting.service.ConsonantService;
 import com.antaehoo.handwriting.service.DoubleConsonantService;
+import com.antaehoo.handwriting.service.HandwritingVerificationService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -18,8 +19,9 @@ public class HandwritingController {
 
     private final ConsonantService consonantService;
     private final DoubleConsonantService doubleConsonantService;
+    private final HandwritingVerificationService handwritingVerificationService;
 
-    @PostMapping("/save")
+    @PostMapping("/save")  //test
     public ResponseEntity<String> saveHandwriting(@RequestBody HandwritingRequest request) {
         consonantService.saveNormalization(request);
 
@@ -32,8 +34,7 @@ public class HandwritingController {
         return ResponseEntity.ok("ㄲ 저장 성공!");
     }
 
-
-    @GetMapping("/latest")
+    @GetMapping("/latest") //test
     public ResponseEntity<List<StrokeData>> getLatestHandwriting() {
         Consonant latestConsonant = consonantService.getLatestConsonant();
 
@@ -42,6 +43,11 @@ public class HandwritingController {
         }
 
         return ResponseEntity.ok(latestConsonant.getVectorMap());
+    }
+
+    @PostMapping("/verify")
+    public ResponseEntity<Boolean> verifyAndSave(@RequestBody HandwritingRequest request) {
+        return ResponseEntity.ok(handwritingVerificationService.verifyAndSave(request));
     }
 
     @GetMapping("/double")
@@ -55,3 +61,4 @@ public class HandwritingController {
         return ResponseEntity.ok(doubleVectorMap);
     }
 }
+
