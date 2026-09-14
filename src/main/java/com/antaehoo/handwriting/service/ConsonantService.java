@@ -1,5 +1,6 @@
 package com.antaehoo.handwriting.service;
 
+import com.antaehoo.handwriting.dto.FastApiPredictResponse;
 import com.antaehoo.handwriting.dto.HandwritingRequest;
 import com.antaehoo.handwriting.dto.StrokeData;
 import com.antaehoo.handwriting.repository.Consonant;
@@ -7,8 +8,11 @@ import com.antaehoo.handwriting.repository.ConsonantRepository;
 import com.antaehoo.handwriting.repository.User;
 import com.antaehoo.handwriting.repository.UserRepository;
 import lombok.RequiredArgsConstructor;
+import org.springframework.beans.factory.annotation.Value;
+import org.springframework.http.MediaType;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
+import org.springframework.web.client.RestClient;
 
 import java.util.List;
 import java.util.Optional;
@@ -32,7 +36,7 @@ public class ConsonantService {
         List<Consonant> list = consonantRepository.findAll();
         return list.isEmpty() ? null : list.get(list.size() - 1);
     }
-
+ 
     @Transactional
     public void saveNormalization(HandwritingRequest request) {
         Optional<User> byId = userRepository.findById(1L); //테스트용, 나중에 리펙토링
@@ -48,5 +52,4 @@ public class ConsonantService {
 
         registerConsonant(consonant);
     }
-
 }
