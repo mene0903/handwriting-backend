@@ -8,7 +8,6 @@ import com.antaehoo.handwriting.dto.HandwritingRequest;
 import com.antaehoo.handwriting.dto.PointData;
 import com.antaehoo.handwriting.dto.StrokeData;
 import org.springframework.stereotype.Service;
-
 import java.util.ArrayList;
 import java.util.List;
 
